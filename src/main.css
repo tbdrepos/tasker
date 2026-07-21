@@ -1,0 +1,76 @@
+:root {
+  --primary-color: #3d36cf;
+  --secondary-color: #8682f0;
+  --accent-color: #4f48fb;
+  --text-color: #0e0e18;
+  --background-color: #f8f8fc;
+  --font-stack: 'Roboto', Verdana, sans-serif; /* A global font variable */
+  --font-size: 1.2rem;
+  --sm: 40rem;
+  --md: 48rem;
+  --lg: 64rem;
+  --xl: 80rem;
+  --2xl: 96rem;
+}
+
+.dark {
+  --primary-color: #8b87ff; /* softer indigo for readability */
+  --secondary-color: #5b57d6; /* muted but still brand-aligned */
+  --accent-color: #a5a3ff; /* high-contrast accent */
+  --text-color: #e6e7f2; /* near-white, not harsh */
+  --background-color: #0f1020; /* deep indigo-blue, not pure black */
+  --surface-color: #16172a; /* cards, navbars */
+  --border-color: #26284a; /* dividers */
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: var(--font-stack), sans-serif;
+  margin: 0;
+  padding: 0;
+  color: var(--text-color);
+  background-color: var(--background-color);
+  font-size: var(--font-size);
+}
+
+button {
+  all: unset;
+  color: var(--background-color);
+  background-color: var(--primary-color);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 8px 16px;
+  margin: 4px;
+}
+button:hover {
+  background-color: var(--accent-color);
+  filter: brightness(1.1);
+}
+input,
+select,
+textarea {
+  all: unset;
+  border: 2px solid var(--text-color);
+  border-radius: 4px;
+  padding: 8px;
+  margin: 4px;
+  color: var(--text-color);
+}
+:is(input, select, textarea):focus {
+  border: 2px solid var(--primary-color);
+}
+a {
+  all: unset;
+  cursor: pointer;
+  color: var(--accent-color);
+  width: fit-content;
+}
+a:hover {
+  filter: brightness(1.2);
+}
+
+#app {
+  width: 100%;
+}
