@@ -1,7 +1,5 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
-import type { User } from '@supabase/supabase-js'
-import { supabase } from '@/supabase/client'
 import TaskList from '@/components/tasks/TaskList.vue'
 import AddTask from '@/components/tasks/AddTask.vue'
 import RegisterForm from '@/components/auth/RegisterForm.vue'
@@ -9,7 +7,7 @@ import RegisterDialog from '@/components/auth/RegisterDialog.vue'
 import AppHero from '@/components/AppHero.vue'
 import AppHeader from '@/components/AppHeader.vue'
 import DragSwitch from '@/components/tasks/DragSwitch.vue'
-import { useLoading } from 'vue-loading-overlay'
+import type { User } from './types/user'
 
 const user = ref<User | null>(null)
 const username = ref<string>('')
@@ -17,29 +15,6 @@ const username = ref<string>('')
 const registerDialog = ref<InstanceType<typeof RegisterDialog> | null>(null)
 
 const disabled = ref<boolean>(false)
-
-onMounted(async () => {
-  //show loading screen
-  const loader = useLoading().show({
-    backgroundColor: '#3d36cf',
-  })
-  //await supabase.rpc('my_slow_function')
-
-  //get user
-  const { data } = await supabase.auth.getSession()
-  user.value = data.session?.user ?? null
-
-  //hide loading screen
-  loader.hide()
-
-  supabase.auth.onAuthStateChange((_event, session) => {
-    user.value = session?.user ?? null
-    //get username
-    if (user.value !== null) {
-      username.value = user.value.user_metadata.username
-    }
-  })
-})
 
 function displayRegisterDialog() {
   registerDialog.value?.showModal()
