@@ -20,7 +20,8 @@ class Settings(BaseSettings):
     algorithm: str = "HS256"
     access_token_expire_minutes: int = 60 * 24
 
-    ai_model: str = "qwen3.5:9b"
+    ollama_host: str = "http://localhost:11434"
+    ollama_model: str = "qwen3.5:9b"
 
 
 @lru_cache

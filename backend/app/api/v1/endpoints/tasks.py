@@ -14,7 +14,7 @@ async def list_tasks(
     session: SessionDep,
     current_user: CurrentUserDep,
     board_id: uuid.UUID | None = Query(default=None),
-) -> list[TaskRead]:
+):
     service = TaskService(session)
     return await service.list_tasks(current_user.id, board_id)
 
@@ -22,7 +22,7 @@ async def list_tasks(
 @router.post("", response_model=TaskRead, status_code=status.HTTP_201_CREATED)
 async def create_task(
     data: TaskCreate, session: SessionDep, current_user: CurrentUserDep
-) -> TaskRead:
+):
     service = TaskService(session)
     return await service.create_task(current_user.id, data)
 
@@ -30,7 +30,7 @@ async def create_task(
 @router.get("/{task_id}", response_model=TaskRead)
 async def get_task(
     task_id: uuid.UUID, session: SessionDep, current_user: CurrentUserDep
-) -> TaskRead:
+):
     service = TaskService(session)
     return await service.get_task(task_id, current_user.id)
 
@@ -41,7 +41,7 @@ async def update_task(
     data: TaskUpdate,
     session: SessionDep,
     current_user: CurrentUserDep,
-) -> TaskRead:
+):
     service = TaskService(session)
     return await service.update_task(task_id, current_user.id, data)
 

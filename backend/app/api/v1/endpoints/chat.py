@@ -1,4 +1,5 @@
 from fastapi import APIRouter
+from sqlmodel import col
 
 from app.api.v1.dependencies import CurrentUserDep, SessionDep
 from app.schemas.chat import ChatRequest, ChatResponse, ChatSessionRead
@@ -8,7 +9,7 @@ router = APIRouter(prefix="/chat", tags=["chat"])
 
 
 @router.get("/sessions", response_model=list[ChatSessionRead])
-async def list_sessions(session: SessionDep, current_user: CurrentUserDep) -> list[ChatSessionRead]:
+async def list_sessions(session: SessionDep, current_user: CurrentUserDep):
     from sqlmodel import select
 
     from app.models.chat import ChatSession
@@ -16,7 +17,7 @@ async def list_sessions(session: SessionDep, current_user: CurrentUserDep) -> li
     result = await session.execute(
         select(ChatSession)
         .where(ChatSession.user_id == current_user.id)
-        .order_by(ChatSession.updated_at.desc())
+        .order_by(col(ChatSession.updated_at).desc())
     )
     return list(result.scalars().all())
 
