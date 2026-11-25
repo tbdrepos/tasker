@@ -1,17 +1,7 @@
-<script setup lang="ts">
-import LandingView from './views/LandingView.vue'
-</script>
+<script setup lang="ts"></script>
 
 <template>
-  <div class="app">
-    <LandingView />
+  <div class="app bg-linear-to-r from-background to-card">
+    <RouterView />
   </div>
 </template>
-
-<style scoped>
-.app {
-  padding: 0;
-  margin: 0;
-  background-color: var(--background);
-}
-</style>

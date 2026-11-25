@@ -2,11 +2,12 @@
 import Button from '@/components/ui/button/Button.vue'
 </script>
 <template>
-  <section class="flex items-center justify-between px-12">
-    <div class="w-3xl flex flex-col items-start gap-4">
+  <section class="flex items-center justify-between p-12">
+    <div class="w-3xl flex flex-col lg:items-start justify-center gap-4">
       <small
-        class="text-primary-foreground font-bold bg-secondary px-4 py-1.5 rounded-xl border-2 border-accent">Smarter
-        Tasks. More Focus.</small>
+        class="text-primary-foreground font-bold bg-secondary px-4 py-1.5 rounded-xl border-2 border-accent"
+        >Smarter Tasks. More Focus.</small
+      >
       <h1 class="text-6xl font-bold">
         Organize Your Work with <span class="text-primary glossy-text">AI Assistant</span>
       </h1>
@@ -15,7 +16,11 @@ import Button from '@/components/ui/button/Button.vue'
       </p>
       <div class="flex gap-6">
         <Button>Get Started</Button>
-        <Button variant="outline">Learn More</Button>
+        <RouterLink to="/about">
+          <Button variant="outline" as-child>
+            <RouterLink to="/about">Learn More</RouterLink>
+          </Button>
+        </RouterLink>
       </div>
     </div>
     <div class="w-3xl">
@@ -28,11 +33,13 @@ import Button from '@/components/ui/button/Button.vue'
   text-transform: uppercase;
 
   background:
-    linear-gradient(190deg,
+    linear-gradient(
+      190deg,
       rgba(255, 255, 255, 0.85) 0%,
       rgba(255, 255, 255, 0.25) 49%,
       rgba(0, 0, 0, 0.25) 50%,
-      rgba(255, 255, 255, 0.15) 100%),
+      rgba(255, 255, 255, 0.15) 100%
+    ),
     var(--color-primary);
 
   -webkit-background-clip: text;

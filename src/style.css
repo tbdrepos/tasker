@@ -82,6 +82,9 @@
   --background: oklch(0.9831 0.008 278.64);
   --foreground: oklch(0.2078 0.0515 274.45);
 
+  --hero-img: url('@/images/landing-bg-light.png');
+  --wavy-img: url('@/images/wavy-bg-light.png');
+
   /* Cards and popovers */
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.2078 0.0515 274.45);
@@ -151,11 +154,13 @@
 
 .dark {
   /* Backgrounds */
-  --background: oklch(0.1564 0.0344 273.44);
+  --background: #0c0c2b;
   --foreground: oklch(0.9696 0.0147 281.96);
+  --hero-img: url('@/images/landing-bg.png');
+  --wavy-img: url('@/images/wavy-bg.png');
 
   /* Cards and popovers */
-  --card: oklch(0.1969 0.0442 275.71);
+  --card: #080819;
   --card-foreground: oklch(0.9696 0.0147 281.96);
 
   --popover: oklch(0.1969 0.0442 275.71);
