@@ -25,7 +25,7 @@ const statsItems = [
 <template>
   <section class="flex items-center justify-between p-4 lg:p-12 lg:w-fit mx-auto">
     <div
-      class="pointer-events-none absolute lg:hidden right-0 top-30 h-40 w-40 rounded-full bg-primary/40 blur-3xl"
+      class="pointer-events-none absolute lg:hidden right-0 top-30 h-60 w-40 rounded-full bg-primary/40 blur-3xl"
       aria-hidden="true"
     />
     <div
@@ -35,7 +35,7 @@ const statsItems = [
         >About Tasker</small
       >
       <div class="flex flex-col items-center lg:items-start gap-1">
-        <h1 class="text-4xl lg:text-6xl font-bold">
+        <h1 class="text-4xl sm:text-5xl font-bold">
           About
           <span
             class="bg-linear-to-r from-primary to-accent-foreground bg-clip-text text-transparent"

@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { Button } from '@/components/ui/button'
-import { SquareCheck, Menu, X } from '@lucide/vue'
+import { Menu, X } from '@lucide/vue'
+import AppLogo from '@/components/shared/AppLogo.vue'
 
 const menuOpen = ref(false)
 </script>
@@ -9,10 +10,7 @@ const menuOpen = ref(false)
 <template>
   <header class="relative flex items-center justify-between gap-4 px-4 py-4 md:p-8 lg:px-24">
     <RouterLink to="/" @click="menuOpen = false">
-      <div class="text-xl md:text-2xl font-bold flex items-center gap-2">
-        <SquareCheck fill="var(--color-primary)" :size="32" class="md:w-10 md:h-10" />
-        Tasker
-      </div>
+      <AppLogo size="lg" />
     </RouterLink>
 
     <!-- Desktop Nav -->
